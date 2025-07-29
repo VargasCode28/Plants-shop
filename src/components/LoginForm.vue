@@ -1,110 +1,125 @@
-<!-- <template>
-  <div class="login-card bg-light p-4 rounded shadow">
-    <h2 class="text-success mb-3">Welcome!</h2>
-    <form @submit.prevent="handleLogin">
-      <div class="mb-3">
-        <label for="username" class="form-label">@username</label>
-        <input v-model="username" type="text" id="username" class="form-control" required />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input v-model="password" type="password" id="password" class="form-control" required />
-      </div>
-      <div class="mb-3 text-end">
-        <a href="#" class="text-decoration-none text-success">Forgot Password?</a>
-      </div>
-      <button type="submit" class="btn btn-success w-100">LOGIN</button>
-    </form>
-  </div>
-</template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const username = ref('')
-const password = ref('')
-
-function handleLogin() {
-  alert(`Intento de login: ${username.value}`)
-}
-</script>
-
-<style scoped>
-.login-card {
-  max-width: 400px;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-</style> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- src/components/LoginForm.vue -->
 <template>
-  <div class="login-card bg-light p-3 rounded shadow-sm text-center w-100" style="max-width: 320px;">
-    <h2 class="text-dark mb-4">Welcome</h2>
-    <form @submit.prevent="handleLogin">
+  <div class="login-card bg-light p-4 rounded shadow-sm text-center w-100" style="max-width: 320px;">
+    <div class="d-flex justify-content-center align-items-center gap-2 mb-4">
+      <i class="bi bi-flower1 text-success fs-4"></i>
+      <h2 class="text-dark m-0 fw-bold">Bienvenido</h2>
+    </div>
+
+    <form @submit.prevent="submit">
       <div class="input-group mb-3">
-        <span class="input-group-text bg-secondary text-white">
+        <span class="input-group-text bg-success text-white">
           <i class="bi bi-person-fill"></i>
         </span>
-        <input v-model="username" type="text" class="form-control" placeholder="Username" required />
+        <input v-model="email" type="email" class="form-control" placeholder="Email" required />
       </div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text bg-secondary text-white">
+        <span class="input-group-text bg-success text-white">
           <i class="bi bi-lock-fill"></i>
         </span>
-        <input v-model="password" type="password" class="form-control" placeholder="Password" required />
+        <input v-model="password" type="password" class="form-control" placeholder="Contraseña" required />
       </div>
 
-      <a href="#" class="d-block mb-3 text-decoration-none text-success small">Forgot Password?</a>
-      <button type="submit" class="btn btn-dark w-100">LOGIN</button>
+      <a href="#" class="d-block mb-3 text-decoration-none text-success small">¿Olvidaste tu clave?</a>
+
+      <button type="submit" class="btn btn-success w-100 mb-2">
+        <i class="bi bi-box-arrow-in-right me-1"></i> Ingresar
+      </button>
+
+     <button type="submit" class="btn btn-outline-dark w-100" @click="handleRegister"> 
+        <i class="bi bi-person-plus me-1"></i> Registrarse
+     </button>
     </form>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-const username = ref('')
-const password = ref('')
+import { useRouter } from 'vue-router'
+import { auth } from '@/firebase/firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
+
+const email = ref('')
+const password = ref('')
+const router = useRouter()
+
+
+async function submit() {
+  try {
+    const result = await signInWithEmailAndPassword(auth, email.value, password.value)
+    console.log('✅ Usuario logueado:', result.user)
+  
+  router.push('/ShopView')
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error('❌ Error de login:', err.message)
+    } else {
+      console.error('❌ Error desconocido:', err)
+    }
+  }
+}
+
+
+
+
+
+/*
 function handleLogin() {
   alert(`Login attempt by: ${username.value}`)
 }
-</script>
+*/
+function handleRegister() {
+  router.push('/register') 
+}
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
