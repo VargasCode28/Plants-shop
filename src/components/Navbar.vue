@@ -1,172 +1,14 @@
-<!-- <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-2 px-0 m-0 border-0 w-100">
-    <div class="container-fluid px-2">
-      <RouterLink to="/" class="navbar-brand d-flex align-items-center gap-2 fw-bold text-light m-0">
-        <i class="bi bi-flower1 text-success fs-5"></i>
-        <span class="fs-5">PlantShop</span>
-      </RouterLink>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center ">
-          <li class="nav-item">
-            <RouterLink to="/" class="nav-link text-light">
-              <i class="bi bi-box-arrow-in-right me-1"></i> Login
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="/dashboard" class="nav-link text-light">
-              <i class="bi bi-speedometer2 me-1"></i> Dashboard
-            </RouterLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</template>
-
-<script lang="ts" setup>
-import { RouterLink } from 'vue-router'
-</script>
-
-<style scoped>
- body, html, #app {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
-} 
-
-.navbar {
-  border: none;  
-}
-
- .navbar-brand {
-  letter-spacing: 1px;
-} 
-
- .navbar-nav .nav-link {
-  font-weight: 500;
-  padding: 8px 12px;
-} 
-
-.navbar-nav .nav-link:hover {
-  color: #a8e6a3 !important;
-}
-</style> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top w-100">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top w-100 animate-navbar">
     <div class="container-fluid px-2">
-     <!-- <RouterLink to="/#" class="navbar-brand d-flex align-items-center gap-2 fw-bold text-light m-0">
-        <i class="bi bi-flower1 text-success fs-5"></i>
-        <span class="fs-5">PlantShop</span>
+
+      <RouterLink to="/#" class="navbar-brand d-flex align-items-center gap-2 px-3 py-1 rounded bg-dark text-light transition-brand">
+        <i class="bi bi-flower1 text-success fs-4"></i>
+        <span class="fs-5 fw-semibold brand-text">PlantShop</span>
       </RouterLink>
--->
-
-<RouterLink to="/" class="navbar-brand d-flex align-items-center gap-2 px-3 py-1 rounded shadow-sm bg-dark text-light transition">
-  <i class="bi bi-flower1 text-success fs-4"></i>
-  <span class="fs-5 fw-semibold">PlantShop</span>
-</RouterLink>
-
-
 
       <button
-        class="navbar-toggler"
+        class="navbar-toggler border-0"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
@@ -178,28 +20,16 @@ import { RouterLink } from 'vue-router'
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2">
           <li class="nav-item">
-      <!--      <RouterLink to="/" class="nav-link text-light">
-              <i class="bi bi-box-arrow-in-right me-2"></i> Login
-            </RouterLink> -->
-
-<RouterLink to="/" class="nav-link d-flex align-items-center px-3 py-2 rounded bg-gradient text-white shadow-sm transition">
-  <i class="bi bi-box-arrow-in-right me-2 fs-5"></i>
-  <span class="fw-semibold">Login</span>
-</RouterLink>
-
-
-          </li>
- 
-
-          <li class="nav-item">
-     <!--     <RouterLink to="/ShopView" class="nav-link text-light">
-              <i class="bi bi-speedometer2 me-1"></i> Shop
-            </RouterLink>-->  
+            <RouterLink to="/" class="nav-link d-flex align-items-center px-3 py-2 rounded bg-gradient text-white shadow-sm transition-link">
+              <i class="bi bi-box-arrow-in-right me-2 fs-5"></i>
+              <span class="fw-semibold">Login</span>
+            </RouterLink>
           </li>
         </ul>
       </div>
+
     </div>
   </nav>
 </template>
@@ -209,15 +39,14 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <style scoped>
-
 html, body, #app {
   margin: 0;
   padding: 0;
   height: 100%;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* --- Navbar fija y responsive --- */
 .navbar {
   position: fixed;
   top: 0;
@@ -225,50 +54,118 @@ html, body, #app {
   z-index: 1000;
   width: 100%;
   border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease-in-out;
 }
 
-body {
-  padding-top: 56px; /* Compensación visual bajo navbar */
+.animate-navbar {
+  animation: fadeSlideDown 0.6s ease-out;
 }
 
-.navbar-toggler {
-  border: none;
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.brand-text {
+  transition: color 0.3s ease;
+}
+
+.transition-brand:hover {
+  background-color: #343a40;
+  transform: scale(1.04);
+  box-shadow: 0 0 0.5rem rgba(0, 255, 153, 0.3);
 }
 
 .navbar-toggler-icon {
   font-size: 1.2rem;
 }
 
-.navbar-brand {
-  letter-spacing: 1px;
-}
-
-/* --- Menú responsivo --- */
 .navbar-nav .nav-link {
   font-weight: 500;
   padding: 0.5rem 0.75rem;
   text-align: center;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
   color: #a8e6a3 !important;
 }
 
-
-
-
-
-
-
-.nav-link.transition:hover {
+.transition-link:hover {
   background: linear-gradient(90deg, #6c757d, #495057);
-  transform: scale(1.02);
-}
-
-.navbar-brand.transition:hover {
-  background-color: #343a40;
   transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+</style> 
 
-</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
