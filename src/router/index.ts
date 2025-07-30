@@ -4,6 +4,8 @@ import ShopView from '@/views/ShopView.vue'
 import Register from '@/components/Register.vue'
 import AuthView from '@/views/AuthView.vue'
 
+
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,5 +36,13 @@ const router = createRouter({
   
   ],
 })
+
+
+
+
+
+
+
+
 
 export default router
