@@ -3,6 +3,8 @@ import LoginView from '@/views/LoginView.vue'
 import ShopView from '@/views/ShopView.vue'
 import Register from '@/components/Register.vue'
 import AuthView from '@/views/AuthView.vue'
+import Carrito from '@/components/carrito.vue'
+
 
 
 
@@ -33,6 +35,12 @@ const router = createRouter({
       name: 'shopview',
       component:ShopView,
     },
+
+    {
+       path: '/carrito',
+       name: 'carrito',
+       component: Carrito,
+     },
   
   ],
 })
